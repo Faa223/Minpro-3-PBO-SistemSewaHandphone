@@ -19,6 +19,9 @@
     <td><b>NIM</b></td>
     <td>: 2509116092</td>
   </tr>
+    <td><b>KELAS</b></td>
+    <td>: C</td>
+  </tr>
 </table>
 
 ## <b>1. Deskripsi Singkat Program</b>
@@ -66,11 +69,13 @@ Pada bagian Model juga terdapat validasi terhadap atribut masing-masing objek, s
 
 ### <b>C. Package Controller</b>
 
-Package <b>controller</b> berisi class Controller yang digunakan untuk mengatur proses dan data program.
+Package <b>controller</b> berisi class `Controller` yang digunakan untuk mengatur proses dan data program. Class `Controller` mengimplementasikan interface <b>CrudHandphone</b> dan <b>CrudPelanggan</b> sebagai kontrak untuk mengatur operasi CRUD pada data handphone dan pelanggan.
 
-Controller mengelola ArrayList Handphone, Pelanggan, dan Sewa. Controller juga menangani pembuatan ID otomatis, pencarian data, pengecekan data duplikat, proses penyewaan, pengembalian handphone, serta perubahan status data.
+Interface <b>CrudHandphone</b> digunakan untuk menentukan method yang berkaitan dengan pengelolaan data handphone, seperti menambah, mencari, mengubah, menghapus, dan mengambil daftar handphone. Sedangkan interface <b>CrudPelanggan</b> digunakan untuk menentukan method pengelolaan data pelanggan, seperti menambah, mencari, mengubah, menghapus, dan mengambil daftar pelanggan.
 
-Dengan demikian, Controller menjadi penghubung antara data pada Model dengan tampilan dan input yang terdapat pada View.
+Controller mengelola `ArrayList` Handphone, Pelanggan, dan Sewa. Controller juga menangani pembuatan ID otomatis, pencarian data, pengecekan data duplikat, proses penyewaan, pengembalian handphone, serta perubahan status data.
+
+Dengan demikian, Controller menjadi penghubung antara data pada Model dengan tampilan dan input yang terdapat pada View, sekaligus menjadi tempat implementasi method yang telah ditentukan oleh interface `CrudHandphone` dan `CrudPelanggan`.
 
 ### <b>D. Package View</b>
 
