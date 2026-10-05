@@ -15,7 +15,7 @@ import model.SewaMingguan;
  *
  * @author ASUS
  */
-public class Controller {
+public class Controller implements CrudHandphone, CrudPelanggan {
     private final ArrayList<Handphone> daftarHandphone;
     private final ArrayList<Pelanggan> daftarPelanggan;
     private final ArrayList<Sewa> daftarSewa;
@@ -58,11 +58,12 @@ public class Controller {
         nomorSewa++;
         return id;
     }
-
+    
+    @Override
     public ArrayList<Handphone> getDaftarHandphone() {
         return daftarHandphone;
     }
-
+    @Override
     public ArrayList<Pelanggan> getDaftarPelanggan() {
         return daftarPelanggan;
     }
@@ -70,7 +71,8 @@ public class Controller {
     public ArrayList<Sewa> getDaftarSewa() {
         return daftarSewa;
     }
-
+    
+    @Override
     public Handphone tambahHandphone(String merk, String tipe, double harga) {
         if (!Handphone.validasiMerk(merk) || !Handphone.validasiTipe(tipe) || !Handphone.validasiHargaSewa(harga)) {
             return null;
@@ -80,7 +82,8 @@ public class Controller {
         daftarHandphone.add(hp);
         return hp;
     }
-
+    
+        @Override
     public Handphone cariHandphone(String kodeHP) {
         if (kodeHP == null) {
             return null;
@@ -94,7 +97,28 @@ public class Controller {
 
         return null;
     }
+    
+    @Override
+    public boolean ubahHandphone(String kodeHP, String merk, String tipe, double harga) {
+    Handphone hp = cariHandphone(kodeHP);
 
+    if (hp == null) {
+        return false;
+    }
+
+    if (!Handphone.validasiMerk(merk)
+            || !Handphone.validasiTipe(tipe)
+            || !Handphone.validasiHargaSewa(harga)) {
+        return false;
+    }
+
+    hp.setMerk(merk);
+    hp.setTipe(tipe);
+    hp.setHargaSewa(harga);
+
+    return true;
+}
+    
     public boolean handphonePunyaRiwayat(String kodeHP) {
         for (Sewa sewa : daftarSewa) {
             if (sewa.getHandphone().getKodeHP().equalsIgnoreCase(kodeHP)) {
@@ -104,7 +128,7 @@ public class Controller {
 
         return false;
     }
-
+    @Override
     public boolean hapusHandphone(String kodeHP) {
         Handphone hp = cariHandphone(kodeHP);
 
@@ -119,7 +143,7 @@ public class Controller {
         daftarHandphone.remove(hp);
         return true;
     }
-
+    @Override
     public Pelanggan tambahPelanggan(String nama, String noHP, String nik) {
         if (!Pelanggan.validasiNama(nama) || !Pelanggan.validasiNoHP(noHP) || !Pelanggan.validasiNIK(nik)) {
             return null;
@@ -133,7 +157,7 @@ public class Controller {
         daftarPelanggan.add(pelanggan);
         return pelanggan;
     }
-
+    @Override
     public Pelanggan cariPelanggan(String idPelanggan) {
         if (idPelanggan == null) {
             return null;
@@ -148,6 +172,32 @@ public class Controller {
         return null;
     }
 
+    @Override
+public boolean ubahPelanggan(String idPelanggan, String nama, String noHP, String nik) {
+    Pelanggan pelanggan = cariPelanggan(idPelanggan);
+
+    if (pelanggan == null) {
+        return false;
+    }
+
+    if (!Pelanggan.validasiNama(nama)
+            || !Pelanggan.validasiNoHP(noHP)
+            || !Pelanggan.validasiNIK(nik)) {
+        return false;
+    }
+
+    if (noHPSudahAdaSelain(noHP, idPelanggan)
+            || nikSudahAdaSelain(nik, idPelanggan)) {
+        return false;
+    }
+
+    pelanggan.setNama(nama);
+    pelanggan.setNoHP(noHP);
+    pelanggan.setNik(nik);
+
+    return true;
+}
+    
     public boolean noHPSudahAda(String noHP) {
         for (Pelanggan pelanggan : daftarPelanggan) {
             if (pelanggan.getNoHP().equals(noHP)) {
@@ -199,7 +249,7 @@ public class Controller {
         }
         return false;
     }
-
+    @Override
     public boolean hapusPelanggan(String idPelanggan) {
         Pelanggan pelanggan = cariPelanggan(idPelanggan);
 

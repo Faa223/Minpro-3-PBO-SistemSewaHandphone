@@ -76,23 +76,29 @@ public class Handphone {
     }
     
     public static boolean validasiMerk(String merk) {
-        if (merk == null) {
-            return false;
-        }
-
-        String nilai = merk.trim();
-        return nilai.length() >= 2 && nilai.length() <= 30;
+    if (merk == null) {
+        return false;
     }
+
+    String nilai = merk.trim();
+
+    return nilai.length() >= 2
+            && nilai.length() <= 30
+            && nilai.matches("[a-zA-Z ]+");
+}
 
     public static boolean validasiTipe(String tipe) {
-        if (tipe == null) {
-            return false;
-        }
-
-        String nilai = tipe.trim();
-        return nilai.length() >= 2 && nilai.length() <= 50;
+    if (tipe == null) {
+        return false;
     }
 
+    String nilai = tipe.trim();
+
+    return nilai.length() >= 2
+            && nilai.length() <= 50
+            && nilai.matches(".*[a-zA-Z].*")
+            && nilai.matches("[a-zA-Z0-9 ]+");
+}
     public static boolean validasiHargaSewa(double harga) {
         return harga >= 1000 && harga <= 10000000;
     }

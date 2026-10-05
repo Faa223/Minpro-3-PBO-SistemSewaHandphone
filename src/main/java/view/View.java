@@ -5,8 +5,6 @@
 package view;
 
 import controller.Controller;
-import java.text.NumberFormat;
-import java.util.Locale;
 import java.util.Scanner;
 import model.Handphone;
 import model.Pelanggan;
@@ -32,6 +30,7 @@ public class View {
 
         do {
             tampilkanDashboard();
+            
             System.out.println("\n=== MENU UTAMA ===");
             System.out.println("1. Kelola Handphone");
             System.out.println("2. Kelola Pelanggan");
@@ -39,6 +38,7 @@ public class View {
             System.out.println("4. Pengembalian Handphone");
             System.out.println("5. Riwayat Penyewaan");
             System.out.println("0. Keluar");
+
             pilihan = inputAngka("Pilih menu: ", 0, 5);
 
             switch (pilihan) {
@@ -69,12 +69,11 @@ public class View {
             }
 
         } while (pilihan != 0);
-
     }
 
     private void tampilkanDashboard() {
         System.out.println("\n========================================");
-        System.out.println("     SISTEM SEWA HANDPHONE              ");
+        System.out.println("     SISTEM SEWA HANDPHONE");
         System.out.println("========================================");
         System.out.println("Total Handphone : " + controller.getDaftarHandphone().size());
         System.out.println("HP Tersedia     : " + controller.hitungHPTersedia());
@@ -82,6 +81,10 @@ public class View {
         System.out.println("Total Pelanggan : " + controller.getDaftarPelanggan().size());
         System.out.println("Sewa Aktif      : " + controller.hitungSewaAktif());
     }
+
+    // =========================================================
+    // MENU HANDPHONE
+    // =========================================================
 
     private void menuHandphone() {
         int pilihan;
@@ -93,6 +96,7 @@ public class View {
             System.out.println("3. Ubah Handphone");
             System.out.println("4. Hapus Handphone");
             System.out.println("0. Kembali");
+
             pilihan = inputAngka("Pilih menu: ", 0, 4);
 
             switch (pilihan) {
@@ -112,12 +116,13 @@ public class View {
                     hapusHandphone();
                     break;
             }
-            
+
         } while (pilihan != 0);
     }
 
     private void tambahHandphone() {
         System.out.println("\n=== TAMBAH HANDPHONE ===");
+
         String merk;
 
         while (true) {
@@ -128,7 +133,7 @@ public class View {
                 break;
             }
 
-            System.out.println("Merk harus berisi " + "2-30 karakter.");
+            System.out.println("Merk harus berisi 2-30 karakter.");
         }
 
         String tipe;
@@ -141,18 +146,19 @@ public class View {
                 break;
             }
 
-            System.out.println("Tipe harus berisi " + "2-50 karakter.");
+            System.out.println("Tipe harus berisi 2-50 karakter.");
         }
 
         double harga;
 
         while (true) {
             harga = inputDouble("Harga sewa per hari: Rp");
+
             if (Handphone.validasiHargaSewa(harga)) {
                 break;
             }
 
-            System.out.println("Harga harus antara " + "Rp1.000 sampai " + "Rp10.000.000.");
+            System.out.println("Harga harus antara Rp1.000 sampai Rp10.000.000.");
         }
 
         System.out.println("\n=== KONFIRMASI DATA ===");
@@ -166,6 +172,7 @@ public class View {
         }
 
         Handphone hp = controller.tambahHandphone(merk, tipe, harga);
+
         if (hp == null) {
             System.out.println("Data handphone tidak valid.");
             return;
@@ -189,7 +196,18 @@ public class View {
     }
 
     private void tampilkanSatuHandphone(Handphone hp) {
-        System.out.println(hp.getKodeHP() + " | " + hp.getMerk() + " " + hp.getTipe() + " | Rp. " + hp.getHargaSewa() + "/hari" + " | " + hp.getStatus());
+        System.out.println(
+                hp.getKodeHP()
+                + " | "
+                + hp.getMerk()
+                + " "
+                + hp.getTipe()
+                + " | Rp. "
+                + hp.getHargaSewa()
+                + "/hari"
+                + " | "
+                + hp.getStatus()
+        );
     }
 
     private void ubahHandphone() {
@@ -201,6 +219,7 @@ public class View {
 
         System.out.print("\nMasukkan kode HP: ");
         String kode = input.nextLine().trim();
+
         Handphone hp = controller.cariHandphone(kode);
 
         if (hp == null) {
@@ -216,6 +235,7 @@ public class View {
 
         System.out.println("\nData saat ini:");
         tampilkanSatuHandphone(hp);
+
         String merk;
 
         while (true) {
@@ -226,7 +246,7 @@ public class View {
                 break;
             }
 
-            System.out.println("Merk harus berisi " + "2-30 karakter.");
+            System.out.println("Merk harus berisi 2-30 karakter.");
         }
 
         String tipe;
@@ -239,7 +259,7 @@ public class View {
                 break;
             }
 
-            System.out.println("Tipe harus berisi " + "2-50 karakter.");
+            System.out.println("Tipe harus berisi 2-50 karakter.");
         }
 
         double harga;
@@ -251,7 +271,7 @@ public class View {
                 break;
             }
 
-            System.out.println("Harga harus antara " + "Rp1.000 sampai " + "Rp10.000.000.");
+            System.out.println("Harga harus antara Rp1.000 sampai Rp10.000.000.");
         }
 
         if (!konfirmasi("Simpan perubahan?")) {
@@ -259,10 +279,12 @@ public class View {
             return;
         }
 
-        hp.setMerk(merk);
-        hp.setTipe(tipe);
-        hp.setHargaSewa(harga);
-        System.out.println("Data handphone berhasil diubah.");
+        // Menggunakan method CRUD dari Controller
+        if (controller.ubahHandphone(kode, merk, tipe, harga)) {
+            System.out.println("Data handphone berhasil diubah.");
+        } else {
+            System.out.println("Data handphone gagal diubah.");
+        }
     }
 
     private void hapusHandphone() {
@@ -274,6 +296,7 @@ public class View {
 
         System.out.print("\nMasukkan kode HP: ");
         String kode = input.nextLine().trim();
+
         Handphone hp = controller.cariHandphone(kode);
 
         if (hp == null) {
@@ -283,22 +306,32 @@ public class View {
 
         if (controller.handphonePunyaRiwayat(kode)) {
             System.out.println("Handphone tidak dapat dihapus.");
-            System.out.println("Handphone sudah memiliki " + "riwayat penyewaan.");
+            System.out.println("Handphone sudah memiliki riwayat penyewaan.");
             return;
         }
 
-        if (!konfirmasi("Yakin ingin menghapus " + hp.getMerk() + " " + hp.getTipe() + "?")) {
+        if (!konfirmasi(
+                "Yakin ingin menghapus "
+                + hp.getMerk()
+                + " "
+                + hp.getTipe()
+                + "?"
+        )) {
             System.out.println("Penghapusan dibatalkan.");
             return;
         }
 
+        // Menggunakan method CRUD dari Controller
         if (controller.hapusHandphone(kode)) {
             System.out.println("Handphone berhasil dihapus.");
-
         } else {
             System.out.println("Handphone gagal dihapus.");
         }
     }
+
+    // =========================================================
+    // MENU PELANGGAN
+    // =========================================================
 
     private void menuPelanggan() {
         int pilihan;
@@ -310,6 +343,7 @@ public class View {
             System.out.println("3. Ubah Pelanggan");
             System.out.println("4. Hapus Pelanggan");
             System.out.println("0. Kembali");
+
             pilihan = inputAngka("Pilih menu: ", 0, 4);
 
             switch (pilihan) {
@@ -331,11 +365,11 @@ public class View {
             }
 
         } while (pilihan != 0);
-
     }
 
     private void tambahPelanggan() {
         System.out.println("\n=== TAMBAH PELANGGAN ===");
+
         String nama;
 
         while (true) {
@@ -346,7 +380,7 @@ public class View {
                 break;
             }
 
-            System.out.println("Nama harus 3-50 karakter " + "dan hanya berisi huruf.");
+            System.out.println("Nama harus 3-50 karakter dan hanya berisi huruf.");
         }
 
         String noHP;
@@ -356,8 +390,9 @@ public class View {
             noHP = input.nextLine().trim();
 
             if (!Pelanggan.validasiNoHP(noHP)) {
-                System.out.println("No HP harus diawali 08 " + "dan terdiri dari " + "10-15 digit.");
-
+                System.out.println(
+                        "No HP harus diawali 08 dan terdiri dari 10-15 digit."
+                );
                 continue;
             }
 
@@ -376,7 +411,7 @@ public class View {
             nik = input.nextLine().trim();
 
             if (!Pelanggan.validasiNIK(nik)) {
-                System.out.println("NIK harus terdiri " + "dari tepat 16 digit.");
+                System.out.println("NIK harus terdiri dari tepat 16 digit.");
                 continue;
             }
 
@@ -423,7 +458,15 @@ public class View {
     }
 
     private void tampilkanSatuPelanggan(Pelanggan pelanggan) {
-        System.out.println(pelanggan.getIdPelanggan() + " | " + pelanggan.getNama() + " | " + pelanggan.getNoHP() + " | NIK: " + pelanggan.getNik());
+        System.out.println(
+                pelanggan.getIdPelanggan()
+                + " | "
+                + pelanggan.getNama()
+                + " | "
+                + pelanggan.getNoHP()
+                + " | NIK: "
+                + pelanggan.getNik()
+        );
     }
 
     private void ubahPelanggan() {
@@ -435,6 +478,7 @@ public class View {
 
         System.out.print("\nMasukkan ID Pelanggan: ");
         String id = input.nextLine().trim();
+
         Pelanggan pelanggan = controller.cariPelanggan(id);
 
         if (pelanggan == null) {
@@ -444,6 +488,7 @@ public class View {
 
         System.out.println("\nData saat ini:");
         tampilkanSatuPelanggan(pelanggan);
+
         String nama;
 
         while (true) {
@@ -454,7 +499,9 @@ public class View {
                 break;
             }
 
-            System.out.println("Nama harus 3-50 karakter " + "dan hanya berisi huruf.");
+            System.out.println(
+                    "Nama harus 3-50 karakter dan hanya berisi huruf."
+            );
         }
 
         String noHP;
@@ -464,12 +511,14 @@ public class View {
             noHP = input.nextLine().trim();
 
             if (!Pelanggan.validasiNoHP(noHP)) {
-                System.out.println("No HP harus diawali 08 " + "dan terdiri dari " + "10-15 digit.");
+                System.out.println(
+                        "No HP harus diawali 08 dan terdiri dari 10-15 digit."
+                );
                 continue;
             }
 
             if (controller.noHPSudahAdaSelain(noHP, id)) {
-                System.out.println("No HP sudah digunakan " + "pelanggan lain.");
+                System.out.println("No HP sudah digunakan pelanggan lain.");
                 continue;
             }
 
@@ -483,15 +532,15 @@ public class View {
             nik = input.nextLine().trim();
 
             if (!Pelanggan.validasiNIK(nik)) {
-                System.out.println("NIK harus terdiri " + "dari tepat 16 digit.");
+                System.out.println("NIK harus terdiri dari tepat 16 digit.");
                 continue;
             }
 
             if (controller.nikSudahAdaSelain(nik, id)) {
-                System.out.println("NIK sudah digunakan " + "pelanggan lain.");
+                System.out.println("NIK sudah digunakan pelanggan lain.");
                 continue;
             }
-            
+
             break;
         }
 
@@ -500,21 +549,24 @@ public class View {
             return;
         }
 
-        pelanggan.setNama(nama);
-        pelanggan.setNoHP(noHP);
-        pelanggan.setNik(nik);
-        System.out.println("Data pelanggan berhasil diubah.");
+        // Menggunakan method CRUD dari Controller
+        if (controller.ubahPelanggan(id, nama, noHP, nik)) {
+            System.out.println("Data pelanggan berhasil diubah.");
+        } else {
+            System.out.println("Data pelanggan gagal diubah.");
+        }
     }
 
     private void hapusPelanggan() {
         tampilkanPelanggan();
-        
+
         if (controller.getDaftarPelanggan().isEmpty()) {
             return;
         }
 
         System.out.print("\nMasukkan ID Pelanggan: ");
         String id = input.nextLine().trim();
+
         Pelanggan pelanggan = controller.cariPelanggan(id);
 
         if (pelanggan == null) {
@@ -524,7 +576,7 @@ public class View {
 
         if (controller.pelangganPunyaRiwayat(id)) {
             System.out.println("Pelanggan tidak dapat dihapus.");
-            System.out.println("Pelanggan sudah memiliki " + "riwayat penyewaan.");
+            System.out.println("Pelanggan sudah memiliki riwayat penyewaan.");
             return;
         }
 
@@ -535,11 +587,14 @@ public class View {
 
         if (controller.hapusPelanggan(id)) {
             System.out.println("Pelanggan berhasil dihapus.");
-
         } else {
             System.out.println("Pelanggan gagal dihapus.");
         }
     }
+
+    // =========================================================
+    // PENYEWAAN
+    // =========================================================
 
     private void menuPenyewaan() {
         System.out.println("\n=== PENYEWAAN HANDPHONE ===");
@@ -555,8 +610,10 @@ public class View {
         }
 
         tampilkanPelanggan();
+
         System.out.print("\nMasukkan ID Pelanggan: ");
         String idPelanggan = input.nextLine().trim();
+
         Pelanggan pelanggan = controller.cariPelanggan(idPelanggan);
 
         if (pelanggan == null) {
@@ -565,8 +622,10 @@ public class View {
         }
 
         tampilkanHPTersedia();
+
         System.out.print("\nMasukkan kode HP: ");
         String kodeHP = input.nextLine().trim();
+
         Handphone hp = controller.cariHandphone(kodeHP);
 
         if (hp == null) {
@@ -578,11 +637,11 @@ public class View {
             System.out.println("Handphone sedang disewa.");
             return;
         }
-        
+
         System.out.println("\n=== JENIS SEWA ===");
         System.out.println("1. Sewa Harian");
         System.out.println("2. Sewa Mingguan");
-        System.out.println("Sewa mingguan mendapat " + "diskon 10%.");
+        System.out.println("Sewa mingguan mendapat diskon 10%.");
 
         int jenis = inputAngka("Pilih jenis sewa: ", 1, 2);
         int durasi;
@@ -596,36 +655,60 @@ public class View {
                     break;
                 }
 
-                System.out.println("Sewa harian hanya " + "1-6 hari.");
+                System.out.println("Sewa harian hanya 1-6 hari.");
             }
 
             total = hp.getHargaSewa() * durasi;
-            
+
         } else {
             while (true) {
                 durasi = inputAngkaBebas("Jumlah minggu: ");
+
                 if (SewaMingguan.validasiJumlahMinggu(durasi)) {
                     break;
                 }
 
-                System.out.println("Sewa mingguan hanya " + "1-4 minggu.");
+                System.out.println("Sewa mingguan hanya 1-4 minggu.");
             }
 
             double hargaNormal = hp.getHargaSewa() * 7 * durasi;
-            total = hargaNormal - (hargaNormal * SewaMingguan.getDiskonMingguan());
+            total = hargaNormal
+                    - (hargaNormal * SewaMingguan.getDiskonMingguan());
         }
-        
+
         System.out.println("\n=== KONFIRMASI PENYEWAAN ===");
-        System.out.println("Pelanggan : " + pelanggan .getIdPelanggan() + " - " + pelanggan.getNama());
-        System.out.println("Handphone : " + hp.getKodeHP() + " - " + hp.getMerk() + " " + hp.getTipe());
-        System.out.println("Jenis     : " + (jenis == 1 ? "Harian" : "Mingguan"));
-        System.out.println("Durasi    : " + durasi + (jenis == 1 ? " hari" : " minggu"));
+        System.out.println(
+                "Pelanggan : "
+                + pelanggan.getIdPelanggan()
+                + " - "
+                + pelanggan.getNama()
+        );
+
+        System.out.println(
+                "Handphone : "
+                + hp.getKodeHP()
+                + " - "
+                + hp.getMerk()
+                + " "
+                + hp.getTipe()
+        );
+
+        System.out.println(
+                "Jenis     : "
+                + (jenis == 1 ? "Harian" : "Mingguan")
+        );
+
+        System.out.println(
+                "Durasi    : "
+                + durasi
+                + (jenis == 1 ? " hari" : " minggu")
+        );
 
         if (jenis == 2) {
             System.out.println("Diskon    : 10%");
         }
 
-        System.out.println("Total      : Rp. " + total);
+        System.out.println("Total     : Rp. " + total);
 
         if (!konfirmasi("Konfirmasi penyewaan?")) {
             System.out.println("Penyewaan dibatalkan.");
@@ -635,9 +718,17 @@ public class View {
         Sewa sewa;
 
         if (jenis == 1) {
-            sewa = controller.buatSewaHarian(idPelanggan, kodeHP, durasi);
+            sewa = controller.buatSewaHarian(
+                    idPelanggan,
+                    kodeHP,
+                    durasi
+            );
         } else {
-            sewa = controller.buatSewaMingguan(idPelanggan, kodeHP, durasi);
+            sewa = controller.buatSewaMingguan(
+                    idPelanggan,
+                    kodeHP,
+                    durasi
+            );
         }
 
         if (sewa == null) {
@@ -648,11 +739,12 @@ public class View {
         System.out.println("\nPenyewaan berhasil.");
         System.out.println("ID Sewa : " + sewa.getIdSewa());
         System.out.println("Total   : Rp. " + sewa.getTotalBiaya());
-        System.out.println("Status HP berubah " + "menjadi DISEWA.");
+        System.out.println("Status HP berubah menjadi DISEWA.");
     }
 
     private void tampilkanHPTersedia() {
         System.out.println("\n=== HANDPHONE TERSEDIA ===");
+
         boolean ditemukan = false;
 
         for (Handphone hp : controller.getDaftarHandphone()) {
@@ -667,6 +759,10 @@ public class View {
         }
     }
 
+    // =========================================================
+    // PENGEMBALIAN
+    // =========================================================
+
     private void menuPengembalian() {
         System.out.println("\n=== PENGEMBALIAN HANDPHONE ===");
 
@@ -676,8 +772,10 @@ public class View {
         }
 
         tampilkanSewaAktif();
+
         System.out.print("\nMasukkan ID Sewa: ");
         String idSewa = input.nextLine().trim();
+
         Sewa sewa = controller.cariSewa(idSewa);
 
         if (sewa == null) {
@@ -689,11 +787,16 @@ public class View {
             System.out.println("Transaksi sudah selesai.");
             return;
         }
-        
+
         System.out.println("\n=== DETAIL PENGEMBALIAN ===");
         System.out.println("ID Sewa   : " + sewa.getIdSewa());
         System.out.println("Pelanggan : " + sewa.getPelanggan().getNama());
-        System.out.println("Handphone : " + sewa.getHandphone().getMerk() + " " + sewa.getHandphone().getTipe());
+        System.out.println(
+                "Handphone : "
+                + sewa.getHandphone().getMerk()
+                + " "
+                + sewa.getHandphone().getTipe()
+        );
         System.out.println("Jenis     : " + sewa.getJenisSewa());
         System.out.println("Durasi    : " + sewa.getDurasi());
         System.out.println("Total     : Rp. " + sewa.getTotalBiaya());
@@ -704,7 +807,7 @@ public class View {
         }
 
         if (controller.kembalikanHandphone(idSewa)) {
-            System.out.println("\nHandphone berhasil " + "dikembalikan.");
+            System.out.println("\nHandphone berhasil dikembalikan.");
             System.out.println("Status sewa menjadi SELESAI.");
             System.out.println("Status HP menjadi TERSEDIA.");
         } else {
@@ -714,6 +817,7 @@ public class View {
 
     private void tampilkanSewaAktif() {
         System.out.println("\n=== SEWA AKTIF ===");
+
         boolean ditemukan = false;
 
         for (Sewa sewa : controller.getDaftarSewa()) {
@@ -730,6 +834,7 @@ public class View {
 
     private void tampilkanSemuaSewa() {
         System.out.println("\n=== RIWAYAT PENYEWAAN ===");
+
         if (controller.getDaftarSewa().isEmpty()) {
             System.out.println("Belum ada transaksi penyewaan.");
             return;
@@ -743,20 +848,42 @@ public class View {
     private void tampilkanSatuSewa(Sewa sewa) {
         System.out.println("\n----------------------------------------");
         System.out.println("ID Sewa   : " + sewa.getIdSewa());
-        System.out.println("Pelanggan : " + sewa.getPelanggan() .getIdPelanggan() + " - " + sewa.getPelanggan().getNama());
-        System.out.println("Handphone : " + sewa.getHandphone().getKodeHP() + " - " + sewa.getHandphone().getMerk() + " " + sewa.getHandphone().getTipe());
+        System.out.println(
+                "Pelanggan : "
+                + sewa.getPelanggan().getIdPelanggan()
+                + " - "
+                + sewa.getPelanggan().getNama()
+        );
+        System.out.println(
+                "Handphone : "
+                + sewa.getHandphone().getKodeHP()
+                + " - "
+                + sewa.getHandphone().getMerk()
+                + " "
+                + sewa.getHandphone().getTipe()
+        );
         System.out.println("Jenis     : " + sewa.getJenisSewa());
         System.out.println("Durasi    : " + sewa.getDurasi());
-        System.out.println("Total     : " + "Rp. " + sewa.getTotalBiaya());
+        System.out.println("Total     : Rp. " + sewa.getTotalBiaya());
         System.out.println("Status    : " + sewa.getStatus());
     }
+
+    // =========================================================
+    // INPUT
+    // =========================================================
 
     private int inputAngka(String pesan, int minimum, int maksimum) {
         while (true) {
             int angka = inputAngkaBebas(pesan);
 
             if (angka < minimum || angka > maksimum) {
-                System.out.println("Pilihan harus antara " + minimum + " sampai " + maksimum + ".");
+                System.out.println(
+                        "Pilihan harus antara "
+                        + minimum
+                        + " sampai "
+                        + maksimum
+                        + "."
+                );
                 continue;
             }
 
@@ -767,6 +894,7 @@ public class View {
     private int inputAngkaBebas(String pesan) {
         while (true) {
             System.out.print(pesan);
+
             String nilai = input.nextLine().trim();
 
             if (!nilai.matches("[0-9]+")) {
@@ -786,6 +914,7 @@ public class View {
     private double inputDouble(String pesan) {
         while (true) {
             System.out.print(pesan);
+
             String nilai = input.nextLine().trim();
 
             if (!nilai.matches("[0-9]+")) {
@@ -818,6 +947,5 @@ public class View {
 
             System.out.println("Input hanya boleh Y atau N.");
         }
-
     }
 }

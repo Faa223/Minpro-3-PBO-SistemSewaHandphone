@@ -54,8 +54,6 @@ public abstract class Sewa {
         return totalBiaya;
     }
 
-
-
     protected void setTotalBiaya(double totalBiaya) {
         if (totalBiaya < 0) {
             return;
