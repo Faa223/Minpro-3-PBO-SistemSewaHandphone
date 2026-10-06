@@ -49,7 +49,8 @@ Program menerapkan struktur <b>MVC (Model, View, Controller)</b> dengan memisahk
 <p align="center">
   <b>Gambar 1. Struktur Package Program</b>
 
-![Gambar 1 - Struktur Package Project](img/struktur-project.png)
+<p align="left">
+<img width="410" height="529" alt="Screenshot 2026-10-06 191122" src="https://github.com/user-attachments/assets/0004d7e2-71f8-4bdc-ba94-ab4cf2649bee" />
 
 </p>
 
@@ -105,7 +106,8 @@ Dashboard juga menampilkan informasi jumlah handphone, jumlah handphone tersedia
 <p align="center">
   <b>Gambar 2. Menu Utama</b>
 
-![Gambar 2 - Menu Utama](img/menu-utama.png)
+<p align="left">
+<img width="500" height="500" alt="Screenshot 2026-10-06 191416" src="https://github.com/user-attachments/assets/a7a40396-d2c7-4b37-82d1-9a5041a13aad" />
 
 </p>
 
@@ -126,7 +128,8 @@ Menu ini terdiri dari:
 <p align="center">
   <b>Gambar 3. Menu Kelola Handphone</b>
 
-![Gambar 3 - menu-hp](img/menu-hp.png)
+<p align="left">
+<img width="400" height="350" alt="Screenshot 2026-10-06 191950" src="https://github.com/user-attachments/assets/456af0af-1118-4a42-b122-59b618c865c3" />
 
 </p>
 
@@ -134,12 +137,12 @@ Menu ini terdiri dari:
 
 Pada proses tambah handphone, pengguna memasukkan merk, tipe, dan harga sewa per hari. Kode HP tidak perlu dimasukkan secara manual karena dibuat secara otomatis oleh sistem dengan format seperti HP001, HP002, dan seterusnya.
 
-Input akan diperiksa terlebih dahulu melalui validasi pada class Handphone. Setelah seluruh data valid, sistem meminta konfirmasi sebelum data disimpan ke dalam ArrayList.
+Input akan diperiksa terlebih dahulu melalui validasi pada class Handphone. Setelah seluruh data valid, sistem meminta konfirmasi sebelum data disimpan ke dalam ArrayList. Dan juga ketika menginput merek ataupun tipe menggunakan angka dia akan gagal.
 
 <p align="center">
   <b>Gambar 4. Proses Tambah Handphone</b>
-
-![Gambar 4 - tambah-hp](img/tambah-hp.png)
+<p align="left">
+<img width="340" height="365" alt="Screenshot 2026-10-06 192321" src="https://github.com/user-attachments/assets/4a3801ed-fef1-4b83-83f6-23c46a27ee04" />
 
 </p>
 
@@ -151,8 +154,9 @@ Status awal handphone adalah <b>TERSEDIA</b>.
 
 <p align="center">
   <b>Gambar 5. Daftar Handphone</b>
+<p align="left">
+<img width="566" height="126" alt="image" src="https://github.com/user-attachments/assets/f69d537f-3037-42a6-a87b-8b3fec85978b" />
 
-![Gambar 5 - lihat-hp](img/lihat-hp.png)
 
 </p>
 
@@ -164,8 +168,9 @@ Pengguna dapat mengubah merk, tipe, dan harga sewa. Handphone yang sedang bersta
 
 <p align="center">
   <b>Gambar 6. Proses Ubah Handphone</b>
+<p align="left">
+<img width="590" height="325" alt="image" src="https://github.com/user-attachments/assets/84459f16-fcc0-44a3-ae6b-64bdfb932340" />
 
-![Gambar 6 - update-hp](img/update-hp.png)
 
 </p>
 
@@ -177,8 +182,9 @@ Handphone yang sudah mempunyai riwayat penyewaan tidak dapat dihapus karena data
 
 <p align="center">
   <b>Gambar 7. Proses Hapus Handphone</b>
+<p align="left">
+<img width="591" height="206" alt="image" src="https://github.com/user-attachments/assets/cb35774f-a4d4-47f1-95b0-fdc6f72afee5" />
 
-![Gambar 7 - hapus-hp](img/hapus-hp.png)
 
 </p>
 
