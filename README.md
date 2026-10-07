@@ -1,7 +1,6 @@
-<div align="center">
 
   <h1> SISTEM PENYEWAAN HANDPHONE </h1>
-
+  <p align="center">
   <img src="https://img.shields.io/badge/Language-Java-red?style=for-the-badge&logo=java" alt="Java" />
   <img src="https://img.shields.io/badge/Paradigm-OOP-green?style=for-the-badge" alt="OOP" />
   <img src="https://img.shields.io/badge/Aplikasi-Apache%20NetBeans-blue?style=for-the-badge" alt="Apache NetBeans" />
@@ -282,15 +281,15 @@ Jika penyewaan dikonfirmasi, sistem membuat ID sewa secara otomatis dengan forma
 
 <p align="center">
   <b>Gambar 13. Konfirmasi Penyewaan Handphone</b>
-
-![Gambar 13 - konfirmas-sewa](img/konfirmas-sewa.png)
+<p align="left">
+<img width="401" height="183" alt="Screenshot 2026-10-07 162934" src="https://github.com/user-attachments/assets/c8bdffa0-061f-494b-8085-f49c356065dc" />
 
 </p>
 
 <p align="center">
   <b>Gambar 14. Penyewaan Handphone Berhasil</b>
-
-![Gambar 14 - sewa-berhasil](img/sewa-berhasil.png)
+<p align="left">
+<img width="360" height="117" alt="Screenshot 2026-10-07 162938" src="https://github.com/user-attachments/assets/b4f7a35a-c956-4ea1-9106-39799afe74ec" />
 
 </p>
 
@@ -310,15 +309,16 @@ Dengan demikian, handphone tersebut dapat digunakan kembali untuk transaksi peny
 
 <p align="center">
   <b>Gambar 15. Konfirmasi Pengembalian Handphone</b>
-
-![Gambar 15 - konfirmasi-pngembalian](img/konfirmasi-pengembalian.png)
+<p align="left">
+<img width="421" height="495" alt="Screenshot 2026-10-07 163149" src="https://github.com/user-attachments/assets/b7626138-c90c-4b91-b598-ef1549793c92" />
 
 </p>
 
 <p align="center">
   <b>Gambar 16. Pengembalian Handphone Berhasil</b>
+<p align="left">
+<img width="359" height="91" alt="image" src="https://github.com/user-attachments/assets/f99ee3b6-59cc-44dc-934d-f04b080a2718" />
 
-![Gambar 16 - pengembalian-berhasil](img/pengembalian-berhasil.png)
 
 </p>
 
@@ -336,8 +336,9 @@ Riwayat transaksi tetap disimpan meskipun handphone sudah dikembalikan.
 
 <p align="center">
   <b>Gambar 17. Riwayat Penyewaan</b>
+<p align="left">
+<img width="449" height="245" alt="image" src="https://github.com/user-attachments/assets/c89b8a36-3283-4ce4-9db4-80a24dfa7f24" />
 
-![Gambar 17 - riwayat](img/riwayat.png)
 
 </p>
 
@@ -345,7 +346,7 @@ Riwayat transaksi tetap disimpan meskipun handphone sudah dikembalikan.
 
 ### <b>3.6 Keluar Program</b>
 
-Jika pengguna memilih menu '0. Keluar', sistem akan menghentikan perulangan Menu Utama dan menampilkan pesan:
+Ketika pengguna memilih menu '0. Keluar', maka sistem akan menghentikan perulangan Menu Utama dan menampilkan pesan:
 
 ```
 Terima kasih.
@@ -380,9 +381,11 @@ Atribut seperti 'kodeHP' dan 'idPelanggan' juga menggunakan 'final' karena ID te
 
 <p align="center">
   <b>Gambar 18. Penerapan Encapsulation pada Pelanggan</b>
+<p align="left">
+!<img width="1180" height="907" alt="image" src="https://github.com/user-attachments/assets/9f191c24-870b-410c-b849-2ee4850c2d77" />
+<p align="left">
+<img width="1180" height="907" alt="image" src="https://github.com/user-attachments/assets/94a176e0-eb64-4569-bb66-b411aae3fdfd" />
 
-![Gambar 18 - encapsulation](img/encapsulation_1.png)
-![Gambar 18 - encapsulation](img/encapsulation_2.png)
 
 </p>
 
@@ -419,9 +422,10 @@ Sedangkan pada 'SewaMingguan', total biaya dihitung berdasarkan jumlah minggu da
 
 <p align="center">
   <b>Gambar 19. Penerapan Inheritance pada Class Sewa</b>
+<p align="left">
+<img width="415" height="57" alt="Screenshot 2026-10-07 163656" src="https://github.com/user-attachments/assets/84cf8610-1912-46d2-9c7f-3640997b67c4" />
+<img width="602" height="79" alt="image" src="https://github.com/user-attachments/assets/532a4299-3a12-4846-a2b6-6604313fc7b4" />
 
-![Gambar 19 - inheritance](img/inheritance_1.png)
-![Gambar 19 - inheritance](img/inheritance_2.png)
 
 </p>
 
@@ -443,8 +447,9 @@ Pada 'SewaHarian', method 'hitungTotal()' menghitung biaya berdasarkan jumlah ha
 
 <p align="center">
   <b>Gambar 20. Penerapan Polymorphism dan Method Overriding</b>
+<p align="left">
+<img width="604" height="419" alt="image" src="https://github.com/user-attachments/assets/ee5cc081-fff6-469a-b53e-3e2ed958e325" />
 
-![Gambar 20 - polymorphism](img/polymorphism.png)
 
 </p>
 
@@ -479,8 +484,8 @@ View akan menampilkan pesan apabila input tidak sesuai dan meminta pengguna mema
 
 <p align="center">
   <b>Gambar 21. Implementasi Validasi Input</b>
-
-![Gambar 21 - validasi-input](img/validasi.png)
+<p align="left">
+<img width="254" height="171" alt="validasi" src="https://github.com/user-attachments/assets/41880b75-0b93-4cf6-87b5-8e8ba07eca73" />
 
 </p>
 
@@ -490,7 +495,7 @@ View akan menampilkan pesan apabila input tidak sesuai dan meminta pengguna mema
 
 ### <b>8.1 Struktur MVC</b>
 
-Program menggunakan struktur <b>MVC (Model, View, Controller)</b> sebagai nilai tambah agar kode lebih terstruktur.
+Program menggunakan struktur <b>MVC (Model, View, Controller)</b> agar kode lebih terstruktur.
 
 <b>Model</b> bertanggung jawab terhadap data dan aturan dari masing-masing objek.
 
@@ -504,27 +509,8 @@ Penerapan MVC membuat setiap class memiliki tanggung jawab yang lebih jelas sehi
 
 ---
 
-### <b>8.2 Polymorphism dan Method Overriding</b>
 
-Polymorphism diterapkan melalui superclass 'Sewa' dengan subclass 'SewaHarian' dan 'SewaMingguan'.
-
-Method yang sama dapat memberikan hasil yang berbeda berdasarkan jenis objek penyewaan yaitu pada method overriding yang ditetapkan pada method:
-
-* hitungTotal()
-* getJenisSewa()
-* getDurasi()
-
-<p align="center">
-  <b>Gambar 22. Penggunaan Method Overriding</b>
-
-![Gambar 22 - polymorphism](img/polymorphism_2.png)
-![Gambar 22 - polymorphism](img/polymorphism.png)
-
-</p>
-
----
-
-### <b>8.3 Penerapan Interface</b>
+### <b>8.2 Penerapan Interface</b>
 
 Program menerapkan <b>interface</b> sebagai kontrak yang menentukan method CRUD yang harus tersedia dalam proses pengelolaan data handphone dan pelanggan.
 
@@ -547,12 +533,6 @@ Sedangkan interface <b>CrudPelanggan</b> digunakan untuk menentukan operasi CRUD
 * `getDaftarPelanggan()`
 
 Kedua interface tersebut kemudian diimplementasikan oleh class <b>Controller</b> menggunakan keyword `implements`.
-
-Contoh penerapannya adalah:
-
-```java
-public class Controller implements CrudHandphone, CrudPelanggan {
-```
 
 Setiap method yang berasal dari interface kemudian diimplementasikan kembali pada class `Controller` menggunakan annotation `@Override`.
 
@@ -577,22 +557,25 @@ Interface juga membantu menerapkan <b>abstraction</b> karena interface hanya men
 
 <p align="center">
   <b>Gambar 23. Interface CrudHandphone</b>
+<p align="left">
+<img width="1074" height="561" alt="image" src="https://github.com/user-attachments/assets/91f5993e-0d76-49c5-8025-08fdce2f7339" />
 
-![Gambar 23 - interface-handphone](img/interface-handphone.png)
 
 </p>
 
 <p align="center">
   <b>Gambar 24. Interface CrudPelanggan</b>
+<p align="left">
+<img width="1054" height="526" alt="image" src="https://github.com/user-attachments/assets/ea6c770d-d931-446d-bf11-86716d566c2c" />
 
-![Gambar 24 - interface-pelanggan](img/interface-pelanggan.png)
 
 </p>
 
 <p align="center">
   <b>Gambar 25. Implementasi Interface pada Controller</b>
+<p align="left">
+<img width="667" height="173" alt="image" src="https://github.com/user-attachments/assets/8f66814c-633a-436c-95f9-d1b24424f8c5" />
 
-![Gambar 25 - interface-controller](img/interface-controller.png)
 
 </p>
 
