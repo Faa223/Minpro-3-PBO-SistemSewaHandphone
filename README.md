@@ -38,7 +38,7 @@ Program memiliki beberapa fitur utama, yaitu:
 * <b>Pengembalian Handphone</b>, digunakan untuk menyelesaikan transaksi penyewaan yang masih aktif.
 * <b>Riwayat Penyewaan</b>, digunakan untuk melihat seluruh transaksi penyewaan yang pernah dilakukan.
 
-Program juga menerapkan <b>validasi input, access modifier, encapsulation, inheritance, polymorphism, method overriding, ID otomatis, dan dummy data</b>.
+Program juga menerapkan <b>validasi input, access modifier, encapsulation, inheritance, polymorphism, method overriding, ID otomatis, Inteface, dan dummy data</b>.
 
 ---
 
@@ -129,7 +129,7 @@ Menu ini terdiri dari:
   <b>Gambar 3. Menu Kelola Handphone</b>
 
 <p align="left">
-<img width="400" height="350" alt="Screenshot 2026-10-06 191950" src="https://github.com/user-attachments/assets/456af0af-1118-4a42-b122-59b618c865c3" />
+<img width="350" height=450" alt="Screenshot 2026-10-06 191950" src="https://github.com/user-attachments/assets/456af0af-1118-4a42-b122-59b618c865c3" />
 
 </p>
 
@@ -204,8 +204,8 @@ Menu ini terdiri dari:
 
 <p align="center">
   <b>Gambar 8. Menu Kelola Pelanggan</b>
-
-![Gambar 8 - menu-pelanggan](img/menu-pelanggan.png)
+<p align="left">
+<img width="346" height="360" alt="Screenshot 2026-10-07 143259" src="https://github.com/user-attachments/assets/a287e6de-4913-454d-826c-c744ead46689" />
 
 </p>
 
@@ -217,8 +217,8 @@ Sistem melakukan validasi nama, nomor HP, dan NIK. Nomor HP harus diawali '08', 
 
 <p align="center">
   <b>Gambar 9. Proses Tambah Pelanggan</b>
-
-![Gambar 9 - tambah-pelanggan](img/tambah-pelanggan.png)
+<p align="left">
+<img width="331" height="275" alt="Screenshot 2026-10-07 143915" src="https://github.com/user-attachments/assets/0546f3bf-b3ee-4f77-ba0d-e502d04ab522" />
 
 </p>
 
@@ -230,8 +230,8 @@ Informasi yang ditampilkan meliputi ID pelanggan, nama, nomor HP, dan NIK.
 
 <p align="center">
   <b>Gambar 10. Daftar Pelanggan</b>
-
-![Gambar 10 - lihat-pelanggan](img/lihat-pelanggan.png)
+<p align="left">
+<img width="533" height="268" alt="Screenshot 2026-10-07 144725" src="https://github.com/user-attachments/assets/10741d8f-9215-4064-83e7-99af0c7c8bbc" />
 
 </p>
 
@@ -243,8 +243,8 @@ Data baru tetap melalui proses validasi dan sistem memastikan nomor HP maupun NI
 
 <p align="center">
   <b>Gambar 11. Proses Ubah Pelanggan</b>
-
-![Gambar 11 - update-pelanggan](img/update-pelanggan.png)
+<p align="left">
+<img width="539" height="320" alt="Screenshot 2026-10-07 144909" src="https://github.com/user-attachments/assets/1a8e72be-b046-43b8-9e5d-ce69b7fdae02" />
 
 </p>
 
@@ -256,8 +256,8 @@ Pelanggan yang sudah memiliki riwayat penyewaan tidak dapat dihapus agar data pa
 
 <p align="center">
   <b>Gambar 12. Proses Hapus Pelanggan</b>
-
-![Gambar 12 - hapus-pelanggan](img/hapus-pelanggan.png)
+<p align="left">
+<img width="538" height="190" alt="Screenshot 2026-10-07 145003" src="https://github.com/user-attachments/assets/6a1809ba-59e2-480c-acd7-fc7cc6d909f8" />
 
 </p>
 
