@@ -1,5 +1,5 @@
-  <p align="center">
-  <h1> SISTEM PENYEWAAN HANDPHONE </h1>
+<div align="center">
+  <h1> SISTEM PENYEWAAN HANDPHONE</h1>
   <p align="center">
   <img src="https://img.shields.io/badge/Language-Java-red?style=for-the-badge&logo=java" alt="Java" />
   <img src="https://img.shields.io/badge/Paradigm-OOP-green?style=for-the-badge" alt="OOP" />
