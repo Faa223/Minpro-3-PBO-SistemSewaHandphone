@@ -485,7 +485,7 @@ View akan menampilkan pesan apabila input tidak sesuai dan meminta pengguna mema
 <p align="center">
   <b>Gambar 21. Implementasi Validasi Input</b>
 <p align="left">
-<img width="254" height="171" alt="validasi" src="https://github.com/user-attachments/assets/41880b75-0b93-4cf6-87b5-8e8ba07eca73" />
+<img width="404" height="401" alt="validasi" src="https://github.com/user-attachments/assets/41880b75-0b93-4cf6-87b5-8e8ba07eca73" />
 
 </p>
 
