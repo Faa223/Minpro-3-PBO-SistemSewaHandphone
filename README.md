@@ -510,6 +510,8 @@ Penerapan MVC membuat setiap class memiliki tanggung jawab yang lebih jelas sehi
 ---
 
 
+# Nilai Tambah Keren
+
 ### <b>8.2 Penerapan Interface</b>
 
 Program menerapkan <b>interface</b> sebagai kontrak yang menentukan method CRUD yang harus tersedia dalam proses pengelolaan data handphone dan pelanggan.
